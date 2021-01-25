@@ -1,4 +1,5 @@
 import React from 'react';
+import Menu from './Menu';
 
 const Header = ({ logo }) => {
 	return (
@@ -16,6 +17,7 @@ const Header = ({ logo }) => {
 				</h2>
 				<h2 className='fullStack'>Full-Stack Developer</h2>
 			</div>
+			<Menu />
 		</header>
 	);
 };
