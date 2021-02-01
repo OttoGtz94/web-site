@@ -1,0 +1,76 @@
+@mixin cuadrado {
+	width: 200px;
+	height: 200px;
+	background-color: #262626;
+	position: absolute;
+}
+
+@mixin rectangulo {
+	width: 400px;
+	height: 100px;
+	background-color: #262626;
+	position: absolute;
+}
+
+.cuadrado1 {
+	@include cuadrado();
+	top: 80px;
+	right: 0;
+}
+.cuadrado2 {
+	@include cuadrado();
+	top: calc(100vh - 210px);
+}
+
+.rectangulo1 {
+	@include rectangulo();
+	top: 132px;
+}
+
+.rectangulo2 {
+	@include rectangulo();
+	top: calc(100vh - 160px);
+	right: 0;
+}
+
+.circulo {
+	width: 80px;
+	height: 80px;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	border: 3px solid #f8f8f8;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: calc(100vh - 150px);
+	left: 60px;
+	transition: 0.5s linear;
+	&:hover {
+		cursor: pointer;
+		border-color: #0d6d89;
+		.triangulo-abajo {
+			border-top-color: #0d6d89;
+		}
+		.triangulo-arriba {
+			border-bottom-color: #0d6d89;
+		}
+	}
+	.triangulo-abajo {
+		width: 0;
+		height: 0;
+		border-left: 20px solid transparent;
+		border-right: 20px solid transparent;
+		border-top: 30px solid #f8f8f8;
+		transition: 0.5s linear;
+	}
+	.triangulo-arriba {
+		width: 0;
+		height: 0;
+		border-left: 20px solid transparent;
+		border-right: 20px solid transparent;
+		border-bottom: 30px solid #f8f8f8;
+	}
+}

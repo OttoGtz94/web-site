@@ -1,0 +1,15 @@
+.circulo-logo {
+	width: 115px;
+	height: 115px;
+	border-radius: 50%50%;
+	border: 5px solid #898989;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	.terminal-logo {
+		font-size: 70px;
+		color: #898989;
+	}
+}

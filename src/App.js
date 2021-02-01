@@ -1,15 +1,10 @@
 import React, { Fragment } from 'react';
-import Logo from './images/dibujo.svg';
-import Header from './components/Header';
-// import Menu from './components/Menu';
-import AboutMe from './components/AboutMe';
+import Home from './components/Pages/Page 1/Home';
 
 function App() {
 	return (
 		<Fragment>
-			<Header logo={Logo} />
-			{/* <Menu /> */}
-			<AboutMe />
+			<Home />
 		</Fragment>
 	);
 }
