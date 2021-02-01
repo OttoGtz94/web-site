@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
-
 import Logo from '../../Logo';
 import BarraBottom from '../../BarraBottom';
 import Cuadrado from '../../Cuadrado';
 import BotonNav from '../../BotonNav';
+import { abrirMenu } from '../../../Helpers';
 
 const Nav = styled.nav`
 	height: 70px;
@@ -60,14 +60,16 @@ const Profesion = styled.p`
 	text-align: center;
 `;
 
-const Home = () => {
-	const abrirMenu = () => {
-		console.log('Menu');
-	};
+const Home = ({ guardarAbrirMenu }) => {
+	// States
+	// const [abrirmenu, guardarAbrirMenu] = useState(false);
+
 	return (
 		<header>
 			<Nav>
-				<Menu onClick={abrirMenu}>menu ( )</Menu>
+				<Menu onClick={() => guardarAbrirMenu(true)}>
+					menu ( )
+				</Menu>
 			</Nav>
 			<BarraBottom />
 			{/* <Rectangulo1 /> */}
