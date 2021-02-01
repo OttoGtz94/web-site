@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
+import { gsap } from 'gsap';
 import Logo from '../../Logo';
 import BarraBottom from '../../BarraBottom';
 import Cuadrado from '../../Cuadrado';
 import BotonNav from '../../BotonNav';
-import { abrirMenu } from '../../../Helpers';
+
+// import { animarCajas } from '../../../Helpers';
 
 const Nav = styled.nav`
 	height: 70px;
@@ -60,9 +62,40 @@ const Profesion = styled.p`
 	text-align: center;
 `;
 
+// ANIMACIONES
+
+const animarCajas = () => {
+	// gsap.to('.rectangulo1', {
+	// 	duration: 5,
+	// 	x: 400,
+	// });
+	gsap
+		.timeline({
+			defaults: {
+				duration: 1,
+				delay: 0.1,
+			},
+		})
+		.to('.rectangulo1', {
+			x: 400,
+		})
+		.to('.cuadrado1', {
+			y: 80,
+		})
+		.to('#barraHeaderTop', {
+			opacity: 0,
+		});
+	console.log('Animar cajas');
+};
+
 const Home = ({ guardarAbrirMenu }) => {
 	// States
 	// const [abrirmenu, guardarAbrirMenu] = useState(false);
+
+	useEffect(() => {
+		console.log('Componente cargado');
+		animarCajas();
+	});
 
 	return (
 		<header>

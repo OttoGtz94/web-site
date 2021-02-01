@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { obtenerYear } from '../Helpers';
+// import { obtenerYear } from '../Helpers';
 import Logo from './Logo';
 import BarraBottom from './BarraBottom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -128,7 +128,7 @@ const Menu = ({ guardarAbrirMenu }) => {
 			<ContenedorLogoYBoton>
 				<ContenedorLogo>
 					<a
-						href='#'
+						href='#null'
 						onClick={() => guardarAbrirMenu(false)}
 					>
 						<Logo />
@@ -145,36 +145,36 @@ const Menu = ({ guardarAbrirMenu }) => {
 				</CotenedorBotonCerrar>
 			</ContenedorLogoYBoton>
 			<ContenedorLista>
-				<ElementoLista href='#'>
-					<a href='#'>Habilidades & Conocimientos</a>
+				<ElementoLista>
+					<a href='#null'>Habilidades & Conocimientos</a>
 					<BarraBottom />
 				</ElementoLista>
 
 				<ElementoLista>
-					<a href='#'>Contacto</a>
+					<a href='#null'>Contacto</a>
 					<BarraBottom />
 				</ElementoLista>
 
 				<ElementoLista>
-					<a href='#'>Portafolio</a>
+					<a href='#null'>Portafolio</a>
 					<BarraBottom />
 				</ElementoLista>
 
 				<ElementoLista>
-					<a href='#'>Blog</a>
+					<a href='#null'>Blog</a>
 					<BarraBottom />
 				</ElementoLista>
 			</ContenedorLista>
 			<PieMenu>
 				<p>{year} &copy; Otto Gutiérrez. </p>
 				<div>
-					<a href='#'>
+					<a href=' # '>
 						<FontAwesomeIcon icon={faGithubSquare} />
 					</a>
-					<a href='#'>
+					<a href=' # '>
 						<FontAwesomeIcon icon={faLinkedin} />
 					</a>
-					<a href='#'>
+					<a href=' # '>
 						<FontAwesomeIcon icon={faFacebookSquare} />
 					</a>
 				</div>

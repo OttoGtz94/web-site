@@ -8,7 +8,9 @@ const BarraHorizontal = styled.div`
 `;
 
 const BarraBottom = () => {
-	return <BarraHorizontal></BarraHorizontal>;
+	return (
+		<BarraHorizontal id='barraHeaderTop'></BarraHorizontal>
+	);
 };
 
 export default BarraBottom;
