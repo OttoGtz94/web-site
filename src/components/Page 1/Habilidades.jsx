@@ -1,6 +1,6 @@
 import React from 'react';
-import Cuadrado from '../../Cuadrado';
-import Logo from '../../Logo';
+import Cuadrado from '../Cuadrado';
+import Logo from '../Logo';
 import styled from '@emotion/styled';
 
 const ContenedorHabilidades = styled.div`
@@ -25,7 +25,7 @@ const ContenedorLogo = styled.div`
 
 const Habilidades = () => {
 	return (
-		<ContenedorHabilidades>
+		<ContenedorHabilidades id='habilidades'>
 			<ContenedorRectanguloLogo>
 				<Cuadrado clase='rectangulo1' />
 				<ContenedorLogo>

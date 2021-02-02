@@ -146,7 +146,9 @@ const Menu = ({ guardarAbrirMenu }) => {
 			</ContenedorLogoYBoton>
 			<ContenedorLista>
 				<ElementoLista>
-					<a href='#null'>Habilidades & Conocimientos</a>
+					<a href='#habilidades'>
+						Habilidades & Conocimientos
+					</a>
 					<BarraBottom />
 				</ElementoLista>
 

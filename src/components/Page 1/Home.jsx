@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from '@emotion/styled';
-import { gsap } from 'gsap';
-import Logo from '../../Logo';
-import BarraBottom from '../../BarraBottom';
-import Cuadrado from '../../Cuadrado';
-import BotonNav from '../../BotonNav';
+import { gsap, Bounce, SteppedEase } from 'gsap';
+import Logo from '../Logo';
+import BarraBottom from '../BarraBottom';
+import Cuadrado from '../Cuadrado';
+import BotonNav from '../BotonNav';
 
 // import { animarCajas } from '../../../Helpers';
 
@@ -64,55 +64,6 @@ const Profesion = styled.p`
 
 // ANIMACIONES
 
-const animarHeader = () => {
-	gsap
-		.timeline({
-			defaults: {
-				duration: 1,
-			},
-		})
-		.from('.header', {
-			scale: 0.5,
-			opacity: 0,
-			y: -100,
-		})
-		.to('.header', {
-			duration: 0.1,
-			scale: 1,
-			opacity: 1,
-			y: 'auto',
-		});
-	console.log('Animar cajas');
-};
-const animarBarras = () => {
-	gsap
-		.timeline({
-			defaults: {
-				duration: 1,
-			},
-		})
-		.from('.barrasHeader', {
-			scaleX: 0.5,
-		})
-		.to('.barrasHeader', {
-			scaleX: 1,
-		});
-};
-const animarCuadros = () => {
-	gsap
-		.timeline({
-			defaults: {
-				duration: 1,
-			},
-		})
-		.from('.cuadro', {
-			scaleX: 0.1,
-		})
-		.to('.cuadro', {
-			scaleX: 1,
-		});
-};
-
 const onMouseEnter = () => {
 	gsap.to('#menu', {
 		color: '#0d6d89',
@@ -127,19 +78,83 @@ const onMouseOut = () => {
 	console.log('Hover');
 };
 
+const animacionParpadeo = () => {
+	const animacionBotonAbajo = gsap
+		.timeline({
+			defaults: {
+				duration: 0.5,
+				delay: 0.2,
+				yoyo: true,
+				repeat: -1,
+				ease: SteppedEase.config(6),
+			},
+		})
+		.from('.triangulo-abajo', {
+			borderTopColor: '#f8f8f8',
+		})
+		.to('.triangulo-abajo', {
+			borderTopColor: '#0d6d89',
+		})
+		.from('.circulo', {
+			borderColor: '#f8f8f8',
+		})
+		.to('.circulo', {
+			borderColor: '#0d6d89',
+		});
+	const boton = document.querySelector('.boton-abajo');
+	boton.addEventListener('mouseover', () => {
+		// console.log('pausado');
+		animacionBotonAbajo.pause();
+	});
+	boton.addEventListener('mouseout', () => {
+		// console.log('play');
+		animacionBotonAbajo.play();
+	});
+	return animacionBotonAbajo;
+};
+
 const Home = ({ guardarAbrirMenu }) => {
 	// States
 	// const [abrirmenu, guardarAbrirMenu] = useState(false);
 
+	const [visible, guardarVisible] = useState(false);
+	const ref = useRef();
 	useEffect(() => {
 		console.log('Componente cargado');
-		animarHeader();
-		animarBarras();
-		animarCuadros();
-	});
+		window.addEventListener('scroll', scrollHandler, true);
+		window.addEventListener('load', animacionParpadeo);
+		// if (ref.current.getBoundingClientRect().y > 100) {
+		// 	guardarVisible(true);
+		// 	alert('y > 100');
+		// 	return;
+		// }
+		guardarVisible(false);
+	}, []);
+
+	const scrollHandler = () => {
+		let y = ref.current.getBoundingClientRect().y * -1;
+		console.log(y);
+		if (y < 100) {
+			console.log('y es menor a 100');
+			// animacionParpadeo();
+			return;
+		} else if (y > 100) {
+			console.log('y es mayor a 100');
+			return;
+		}
+	};
+
+	const irabajo = () => {
+		const jumbotron = document.querySelector(
+			'#habilidades'
+		);
+		jumbotron.scrollIntoView({ behavior: 'smooth' });
+		// console.log('para abajo');
+	};
 
 	return (
-		<header className='header'>
+		<header className='header' ref={ref} id='header'>
+			{visible ? console.log('Y rd mayor a 100') : null}
 			<Nav>
 				<Menu
 					id='menu'
@@ -165,7 +180,7 @@ const Home = ({ guardarAbrirMenu }) => {
 				<Profesion>Full-Stack Developer</Profesion>
 			</ContenedorInformacion>
 			<Cuadrado clase='cuadrado2' />
-			<BotonNav clase='triangulo-abajo' />
+			<BotonNav clase='triangulo-abajo' irabajo={irabajo} />
 			<Cuadrado clase='rectangulo2' />
 			<BarraBottom />
 		</header>

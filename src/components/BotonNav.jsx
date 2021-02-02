@@ -1,8 +1,8 @@
 import React from 'react';
 
-const BotonNav = ({ clase }) => {
+const BotonNav = ({ clase, irabajo }) => {
 	return (
-		<div className='circulo'>
+		<div className='circulo boton-abajo' onClick={irabajo}>
 			<div className={clase}></div>
 		</div>
 	);
