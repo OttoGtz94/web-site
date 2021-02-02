@@ -14,7 +14,8 @@
 
 .cuadrado1 {
 	@include cuadrado();
-	top: 0px;
+	top: 80px;
+	// top: 0px;
 	right: 0;
 	// opacity: 0;
 }
@@ -26,7 +27,8 @@
 .rectangulo1 {
 	@include rectangulo();
 	top: 132px;
-	left: -400px;
+	// left: -400px;
+	left: 0;
 }
 
 .rectangulo2 {

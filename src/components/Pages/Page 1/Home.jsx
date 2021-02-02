@@ -64,28 +64,67 @@ const Profesion = styled.p`
 
 // ANIMACIONES
 
-const animarCajas = () => {
-	// gsap.to('.rectangulo1', {
-	// 	duration: 5,
-	// 	x: 400,
-	// });
+const animarHeader = () => {
 	gsap
 		.timeline({
 			defaults: {
 				duration: 1,
-				delay: 0.1,
 			},
 		})
-		.to('.rectangulo1', {
-			x: 400,
-		})
-		.to('.cuadrado1', {
-			y: 80,
-		})
-		.to('#barraHeaderTop', {
+		.from('.header', {
+			scale: 0.5,
 			opacity: 0,
+			y: -100,
+		})
+		.to('.header', {
+			duration: 0.1,
+			scale: 1,
+			opacity: 1,
+			y: 'auto',
 		});
 	console.log('Animar cajas');
+};
+const animarBarras = () => {
+	gsap
+		.timeline({
+			defaults: {
+				duration: 1,
+			},
+		})
+		.from('.barrasHeader', {
+			scaleX: 0.5,
+		})
+		.to('.barrasHeader', {
+			scaleX: 1,
+		});
+};
+const animarCuadros = () => {
+	gsap
+		.timeline({
+			defaults: {
+				duration: 1,
+			},
+		})
+		.from('.cuadro', {
+			scaleX: 0.1,
+		})
+		.to('.cuadro', {
+			scaleX: 1,
+		});
+};
+
+const onMouseEnter = () => {
+	gsap.to('#menu', {
+		color: '#0d6d89',
+	});
+	console.log('Hover');
+};
+
+const onMouseOut = () => {
+	gsap.to('#menu', {
+		color: '#f8f8f8',
+	});
+	console.log('Hover');
 };
 
 const Home = ({ guardarAbrirMenu }) => {
@@ -94,13 +133,22 @@ const Home = ({ guardarAbrirMenu }) => {
 
 	useEffect(() => {
 		console.log('Componente cargado');
-		animarCajas();
+		animarHeader();
+		animarBarras();
+		animarCuadros();
 	});
 
 	return (
-		<header>
+		<header className='header'>
 			<Nav>
-				<Menu onClick={() => guardarAbrirMenu(true)}>
+				<Menu
+					id='menu'
+					onClick={() => {
+						guardarAbrirMenu(true);
+					}}
+					onMouseEnter={() => onMouseEnter()}
+					onMouseOut={() => onMouseOut()}
+				>
 					menu ( )
 				</Menu>
 			</Nav>
@@ -108,8 +156,8 @@ const Home = ({ guardarAbrirMenu }) => {
 			{/* <Rectangulo1 /> */}
 			<Cuadrado clase='rectangulo1' />
 			<Cuadrado clase='cuadrado1' />
-			<ContenedorInformacion>
-				<Logo />
+			<ContenedorInformacion className='contenedorInformacion'>
+				<Logo clase='circulo-logo' />
 				<Nombre>OTTO GUTIÉRREZ</Nombre>
 				<Profesion>
 					Ing. En Sistemas Computacionales

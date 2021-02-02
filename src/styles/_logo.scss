@@ -13,3 +13,19 @@
 		color: #898989;
 	}
 }
+
+.circulo-logo-icono {
+	width: 70px;
+	height: 70px;
+	border-radius: 50%50%;
+	border: 3px solid #898989;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	.terminal-logo {
+		font-size: 35px;
+		color: #898989;
+	}
+}

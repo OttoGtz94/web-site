@@ -85,9 +85,9 @@ const ElementoLista = styled.li`
 		text-decoration: none;
 		transition: 0.5s linear;
 		width: 100%;
-		&:hover {
+		/* &:hover {
 			color: #0d6d89;
-		}
+		} */
 	}
 `;
 
@@ -131,7 +131,7 @@ const Menu = ({ guardarAbrirMenu }) => {
 						href='#null'
 						onClick={() => guardarAbrirMenu(false)}
 					>
-						<Logo />
+						<Logo clase='circulo-logo' />
 					</a>
 				</ContenedorLogo>
 				<CotenedorBotonCerrar>

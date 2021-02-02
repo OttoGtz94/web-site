@@ -5,11 +5,13 @@ const BarraHorizontal = styled.div`
 	width: 100%;
 	height: 10px;
 	background-color: #898989;
+	/* opacity: 0; */
+	/* transform: scaleX(0); */
 `;
 
 const BarraBottom = () => {
 	return (
-		<BarraHorizontal id='barraHeaderTop'></BarraHorizontal>
+		<BarraHorizontal className='barrasHeader'></BarraHorizontal>
 	);
 };
 
