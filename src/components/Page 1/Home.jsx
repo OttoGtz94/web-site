@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from '@emotion/styled';
 import { gsap, SteppedEase } from 'gsap';
+import { animacionParpadeo } from '../../Helpers';
 import Logo from '../Logo';
 import BarraBottom from '../BarraBottom';
 import Cuadrado from '../Cuadrado';
@@ -78,40 +79,40 @@ const onMouseOut = () => {
 	console.log('Hover');
 };
 
-const animacionParpadeo = () => {
-	const animacionBotonAbajo = gsap
-		.timeline({
-			defaults: {
-				duration: 0.5,
-				delay: 0.2,
-				yoyo: true,
-				repeat: -1,
-				ease: SteppedEase.config(6),
-			},
-		})
-		.from('.triangulo-abajo', {
-			borderTopColor: '#f8f8f8',
-		})
-		.to('.triangulo-abajo', {
-			borderTopColor: '#0d6d89',
-		})
-		.from('.circulo', {
-			borderColor: '#f8f8f8',
-		})
-		.to('.circulo', {
-			borderColor: '#0d6d89',
-		});
-	const boton = document.querySelector('.boton-abajo');
-	boton.addEventListener('mouseover', () => {
-		// console.log('pausado');
-		animacionBotonAbajo.pause();
-	});
-	boton.addEventListener('mouseout', () => {
-		// console.log('play');
-		animacionBotonAbajo.play();
-	});
-	return animacionBotonAbajo;
-};
+// const animacionParpadeo = () => {
+// 	const animacionBotonAbajo = gsap
+// 		.timeline({
+// 			defaults: {
+// 				duration: 0.5,
+// 				delay: 0.2,
+// 				yoyo: true,
+// 				repeat: -1,
+// 				ease: SteppedEase.config(6),
+// 			},
+// 		})
+// 		.from('.triangulo-abajo', {
+// 			borderTopColor: '#f8f8f8',
+// 		})
+// 		.to('.triangulo-abajo', {
+// 			borderTopColor: '#0d6d89',
+// 		})
+// 		.from('.circulo', {
+// 			borderColor: '#f8f8f8',
+// 		})
+// 		.to('.circulo', {
+// 			borderColor: '#0d6d89',
+// 		});
+// 	const boton = document.querySelector('.boton-abajo');
+// 	boton.addEventListener('mouseover', () => {
+// 		// console.log('pausado');
+// 		animacionBotonAbajo.pause();
+// 	});
+// 	boton.addEventListener('mouseout', () => {
+// 		// console.log('play');
+// 		animacionBotonAbajo.play();
+// 	});
+// 	return animacionBotonAbajo;
+// };
 
 const Home = ({ guardarAbrirMenu }) => {
 	// States
