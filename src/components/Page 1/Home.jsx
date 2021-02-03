@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from '@emotion/styled';
-import { gsap, Bounce, SteppedEase } from 'gsap';
+import { gsap, SteppedEase } from 'gsap';
 import Logo from '../Logo';
 import BarraBottom from '../BarraBottom';
 import Cuadrado from '../Cuadrado';

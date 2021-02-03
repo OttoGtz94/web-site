@@ -1,7 +1,10 @@
 import React from 'react';
-import Cuadrado from '../Cuadrado';
-import Logo from '../Logo';
 import styled from '@emotion/styled';
+import Nav from '../Nav';
+import Titulo from '../Titulo';
+import Cuadrado from '../Cuadrado';
+import BarraHorizontal from '../BarraBottom';
+import BotonNav from '../BotonNav';
 
 const ContenedorHabilidades = styled.div`
 	width: 100%;
@@ -11,27 +14,72 @@ const ContenedorHabilidades = styled.div`
 		position: static;
 	}
 `;
-const ContenedorRectanguloLogo = styled.div`
-	background-color: blue;
-	height: auto;
+
+const Contenido = styled.div`
+	width: 100%;
+	/* background-color: blueviolet; */
+	height: calc(100% - 110px);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+`;
+const Izquierda = styled.div`
+	width: 40%;
+	height: 100%;
+	/* background-color: green; */
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	.contenedor-box {
+		width: 100%;
+		/* background-color: yellow; */
+		/* display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between; */
+		display: inline-flex;
+		.box {
+			width: 200px;
+			height: 200px;
+			background-color: #262626;
+			/* border: 1px solid wheat; */
+			/* margin-top: 5vh; */
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			.circulo {
+				position: static;
+			}
+		}
+	}
 `;
 
-const ContenedorLogo = styled.div`
-	background-color: yellow;
-	position: relative;
-	bottom: 100px;
-	width: 115px;
+const Derecha = styled.div`
+	width: 60%;
+	background-color: blue;
 `;
 
 const Habilidades = () => {
 	return (
 		<ContenedorHabilidades id='habilidades'>
-			<ContenedorRectanguloLogo>
-				<Cuadrado clase='rectangulo1' />
-				<ContenedorLogo>
-					<Logo clase='circulo-logo-icono' />
-				</ContenedorLogo>
-			</ContenedorRectanguloLogo>
+			<Nav />
+			<Contenido>
+				<Izquierda>
+					<Titulo titulo='Mis habilidades & Conocimientos' />
+					<div className='contenedor-box'>
+						<div className='box box-izq'>
+							<BotonNav clase='triangulo-abajo' />
+						</div>
+						<div className='box box-der'>
+							<BotonNav clase='triangulo-arriba' />
+						</div>
+					</div>
+				</Izquierda>
+				<Derecha>
+					<h1>Derecha</h1>
+				</Derecha>
+			</Contenido>
+			<BarraHorizontal />
 		</ContenedorHabilidades>
 	);
 };
