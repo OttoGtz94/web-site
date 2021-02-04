@@ -7,14 +7,14 @@ import { faDesktop } from '@fortawesome/free-solid-svg-icons';
 const ContenedorTitulo = styled.div`
 	/* background-color: red; */
 	width: 100%;
-	padding: 10px;
+	/* padding: 10px; */
 	text-align: center;
 	h3 {
 		color: #e8e8e8;
 		font-size: 55px;
 		width: 100%;
 		/* background-color: green; */
-		/* padding: 10px; */
+		padding: 10px;
 	}
 	div {
 		width: 100%;
@@ -32,7 +32,7 @@ const ContenedorTitulo = styled.div`
 
 const Titulo = ({ titulo }) => {
 	return (
-		<ContenedorTitulo>
+		<ContenedorTitulo className='titulo'>
 			<h3>{titulo}</h3>
 			<div>
 				<a href='#null'>

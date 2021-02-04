@@ -22,18 +22,25 @@ import BotonNav from '../BotonNav';
 import { navegar } from '../../Helpers';
 
 const ContenedorHabilidades = styled.div`
-	width: 100%;
+	/* width: 100%;
 	height: 100vh;
+	padding: 20px 0; */
 	.rectangulo1 {
 		/* background-color: red; */
 		position: static;
 	}
+	/* .barrasSeccion {
+		position: absolute;
+		bottom: 0;
+	} */
 `;
 
 const Contenido = styled.div`
 	width: 100%;
 	/* background-color: blueviolet; */
-	height: calc(100% - 110px);
+	/* height: calc(100% - 110px); */
+	height: calc(100% + 10px);
+	/* height: 100%; */
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -44,13 +51,11 @@ const Izquierda = styled.div`
 	/* background-color: green; */
 	display: flex;
 	flex-wrap: wrap;
-	align-items: flex-end;
+	/* align-items: flex-end; */
+	align-content: space-between;
 	.contenedor-box {
 		width: 100%;
-		/* background-color: yellow; */
-		/* display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between; */
+
 		display: inline-flex;
 		.box {
 			width: 200px;
@@ -113,14 +118,20 @@ const Habilidades = () => {
 	// );
 
 	return (
-		<ContenedorHabilidades id='habilidades'>
-			<Nav />
+		<ContenedorHabilidades
+			id='habilidades'
+			className='seccion'
+		>
+			{/* <Nav /> */}
 			<Contenido>
 				<Izquierda>
 					<Titulo titulo='Mis habilidades & Conocimientos' />
 					<div className='contenedor-box'>
 						<div className='box box-izq'>
-							<BotonNav clase='triangulo-abajo' />
+							<BotonNav
+								clase='triangulo-abajo'
+								navegar={() => navegar('#contacto')}
+							/>
 						</div>
 						<div className='box box-der'>
 							<BotonNav
@@ -133,7 +144,7 @@ const Habilidades = () => {
 				<Derecha>
 					<div className='contenedorIconos'>
 						{tecnologias.map(tecnologia => (
-							<div>
+							<div key={tecnologia.iconName}>
 								<span>
 									<FontAwesomeIcon icon={tecnologia} />
 								</span>

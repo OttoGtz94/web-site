@@ -11,6 +11,9 @@
 	background-color: #262626;
 	position: absolute;
 }
+.cuadro {
+	@include cuadrado();
+}
 
 .cuadrado1 {
 	@include cuadrado();
@@ -19,10 +22,10 @@
 	right: 0;
 	// opacity: 0;
 }
-.cuadrado2 {
-	@include cuadrado();
-	top: calc(100vh - 210px);
-}
+// .cuadrado2 {
+// 	@include cuadrado();
+// 	top: calc(100vh - 210px);
+// }
 
 .rectangulo1 {
 	@include rectangulo();

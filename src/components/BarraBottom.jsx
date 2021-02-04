@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const BarraHorizontal = styled.div`
+const BarraHorizontalBottom = styled.div`
 	width: 100%;
 	height: 10px;
 	background-color: #898989;
@@ -9,10 +9,10 @@ const BarraHorizontal = styled.div`
 	/* transform: scaleX(0); */
 `;
 
-const BarraBottom = () => {
+const BarraHorizontal = () => {
 	return (
-		<BarraHorizontal className='barrasHeader'></BarraHorizontal>
+		<BarraHorizontalBottom className='barrasSeccion'></BarraHorizontalBottom>
 	);
 };
 
-export default BarraBottom;
+export default BarraHorizontal;
