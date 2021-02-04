@@ -5,6 +5,8 @@ import Nav from '../Nav';
 import Titulo from '../Titulo';
 import BotonNav from '../BotonNav';
 import BarraHorizontal from '../BarraBottom';
+import Formulario from '../Formulario';
+import Footer from '../Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
 	faGithubSquare,
@@ -12,23 +14,18 @@ import {
 	faFacebookSquare,
 } from '@fortawesome/free-brands-svg-icons';
 
-const ContenedorContacto = styled.div`
-	/* background-color: red; */
-	/* width: 100%;
-	height: 100vh; */
-`;
+const ContenedorContacto = styled.div``;
 const Contenido = styled.div`
 	width: 100%;
-	/* background-color: red; */
 	height: calc(100% + 10px);
+	/* height: 100%; */
 	display: flex;
 	flex-wrap: wrap;
-	/* justify-content: space-around; */
+	align-content: flex-end;
 `;
 
 const Izquierda = styled.div`
 	width: 40%;
-	/* background-color: green; */
 	display: flex;
 	flex-wrap: wrap;
 	align-content: space-between;
@@ -39,7 +36,6 @@ const Izquierda = styled.div`
 	}
 	.redes-sociales {
 		width: 100%;
-		/* background-color: yellow; */
 		text-align: center;
 		a {
 			text-decoration: none;
@@ -50,10 +46,6 @@ const Izquierda = styled.div`
 	}
 	.contenedor-box {
 		width: 100%;
-		/* background-color: yellow; */
-		/* display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between; */
 		display: inline-flex;
 		.box {
 			width: 200px;
@@ -74,7 +66,13 @@ const Izquierda = styled.div`
 
 const Derecha = styled.div`
 	width: 60%;
-	background-color: blue;
+	/* background-color: blue; */
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	/* margin-bottom: 10px; */
+	height: calc(100% - 50px);
 `;
 
 const Contacto = () => {
@@ -110,10 +108,9 @@ const Contacto = () => {
 					</div>
 				</Izquierda>
 				<Derecha>
-					<form>
-						<h1>Formulario</h1>
-					</form>
+					<Formulario />
 				</Derecha>
+				<Footer />
 			</Contenido>
 			<BarraHorizontal />
 		</ContenedorContacto>

@@ -5,6 +5,7 @@ import Home from './components/Page 1/Home';
 import Menu from './components/Menu';
 import Habilidades from './components/Page 1/Habilidades';
 import Contacto from './components/Page 1/Contacto';
+// import Footer from './components/Footer';
 
 function App() {
 	const [abrirmenu, guardarAbrirMenu] = useState(false);
