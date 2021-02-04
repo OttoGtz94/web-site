@@ -1,10 +1,10 @@
 import React from 'react';
 
-const BotonNav = ({ clase, irabajo }) => {
+const BotonNav = ({ clase, navegar }) => {
 	return (
 		<div
 			className='circulo botonDireccion'
-			onClick={irabajo}
+			onClick={() => navegar('#habilidades')}
 		>
 			<div className={`${clase} triangulo-boton `}></div>
 		</div>

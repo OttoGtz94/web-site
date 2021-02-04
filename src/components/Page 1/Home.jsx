@@ -1,13 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from '@emotion/styled';
-import { gsap, SteppedEase } from 'gsap';
-import { animacionParpadeo } from '../../Helpers';
+import { gsap } from 'gsap';
+import { animacionParpadeo, navegar } from '../../Helpers';
 import Logo from '../Logo';
 import BarraBottom from '../BarraBottom';
 import Cuadrado from '../Cuadrado';
 import BotonNav from '../BotonNav';
-
-// import { animarCajas } from '../../../Helpers';
 
 const Nav = styled.nav`
 	height: 70px;
@@ -79,44 +77,8 @@ const onMouseOut = () => {
 	console.log('Hover');
 };
 
-// const animacionParpadeo = () => {
-// 	const animacionBotonAbajo = gsap
-// 		.timeline({
-// 			defaults: {
-// 				duration: 0.5,
-// 				delay: 0.2,
-// 				yoyo: true,
-// 				repeat: -1,
-// 				ease: SteppedEase.config(6),
-// 			},
-// 		})
-// 		.from('.triangulo-abajo', {
-// 			borderTopColor: '#f8f8f8',
-// 		})
-// 		.to('.triangulo-abajo', {
-// 			borderTopColor: '#0d6d89',
-// 		})
-// 		.from('.circulo', {
-// 			borderColor: '#f8f8f8',
-// 		})
-// 		.to('.circulo', {
-// 			borderColor: '#0d6d89',
-// 		});
-// 	const boton = document.querySelector('.boton-abajo');
-// 	boton.addEventListener('mouseover', () => {
-// 		// console.log('pausado');
-// 		animacionBotonAbajo.pause();
-// 	});
-// 	boton.addEventListener('mouseout', () => {
-// 		// console.log('play');
-// 		animacionBotonAbajo.play();
-// 	});
-// 	return animacionBotonAbajo;
-// };
-
 const Home = ({ guardarAbrirMenu }) => {
 	// States
-	// const [abrirmenu, guardarAbrirMenu] = useState(false);
 
 	const [visible, guardarVisible] = useState(false);
 	const ref = useRef();
@@ -144,17 +106,8 @@ const Home = ({ guardarAbrirMenu }) => {
 			return;
 		}
 	};
-
-	const irabajo = () => {
-		const jumbotron = document.querySelector(
-			'#habilidades'
-		);
-		jumbotron.scrollIntoView({ behavior: 'smooth' });
-		// console.log('para abajo');
-	};
-
 	return (
-		<header className='header' ref={ref} id='header'>
+		<header className='header' ref={ref} id='home'>
 			{visible ? console.log('Y rd mayor a 100') : null}
 			<Nav>
 				<Menu
@@ -181,7 +134,10 @@ const Home = ({ guardarAbrirMenu }) => {
 				<Profesion>Full-Stack Developer</Profesion>
 			</ContenedorInformacion>
 			<Cuadrado clase='cuadrado2' />
-			<BotonNav clase='triangulo-abajo' irabajo={irabajo} />
+			<BotonNav
+				clase='triangulo-abajo'
+				navegar={() => navegar('#habilidades')}
+			/>
 			<Cuadrado clase='rectangulo2' />
 			<BarraBottom />
 		</header>

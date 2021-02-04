@@ -94,3 +94,9 @@ export const animacionParpadeo = () => {
 
 	return animacionBoton();
 };
+
+export const navegar = id => {
+	const jumbotron = document.querySelector(`${id}`);
+	// jumbotron.scrollIntoView({ behavior: 'smooth' });
+	jumbotron.scrollIntoView({ behavior: 'smooth' });
+};

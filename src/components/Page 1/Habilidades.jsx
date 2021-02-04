@@ -1,10 +1,25 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+	faHtml5,
+	faCss3Alt,
+	faJs,
+	faReact,
+	faNodeJs,
+	faSass,
+	faLinux,
+	faGithubSquare,
+	faWindows,
+	faJava,
+	faBootstrap,
+} from '@fortawesome/free-brands-svg-icons';
+import { faDatabase } from '@fortawesome/free-solid-svg-icons';
 import Nav from '../Nav';
 import Titulo from '../Titulo';
-import Cuadrado from '../Cuadrado';
 import BarraHorizontal from '../BarraBottom';
 import BotonNav from '../BotonNav';
+import { navegar } from '../../Helpers';
 
 const ContenedorHabilidades = styled.div`
 	width: 100%;
@@ -56,10 +71,47 @@ const Izquierda = styled.div`
 
 const Derecha = styled.div`
 	width: 60%;
-	background-color: blue;
+	/* background-color: blue; */
+	.contenedorIconos {
+		/* background-color: red; */
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		/* align-content: center; */
+		width: 100%;
+		div {
+			/* background-color: white; */
+			width: 30%;
+			text-align: center;
+			/* margin: 10px; */
+			span {
+				color: #898989;
+				font-size: 90px;
+			}
+		}
+	}
 `;
 
 const Habilidades = () => {
+	const tecnologias = [
+		faHtml5,
+		faCss3Alt,
+		faJs,
+		faReact,
+		faNodeJs,
+		faJava,
+		faBootstrap,
+		faSass,
+		faLinux,
+		faWindows,
+		faDatabase,
+		faGithubSquare,
+	];
+
+	// tecnologias.forEach(tecnologia =>
+	// 	console.log(tecnologia)
+	// );
+
 	return (
 		<ContenedorHabilidades id='habilidades'>
 			<Nav />
@@ -71,12 +123,23 @@ const Habilidades = () => {
 							<BotonNav clase='triangulo-abajo' />
 						</div>
 						<div className='box box-der'>
-							<BotonNav clase='triangulo-arriba' />
+							<BotonNav
+								clase='triangulo-arriba'
+								navegar={() => navegar('#home')}
+							/>
 						</div>
 					</div>
 				</Izquierda>
 				<Derecha>
-					<h1>Derecha</h1>
+					<div className='contenedorIconos'>
+						{tecnologias.map(tecnologia => (
+							<div>
+								<span>
+									<FontAwesomeIcon icon={tecnologia} />
+								</span>
+							</div>
+						))}
+					</div>
 				</Derecha>
 			</Contenido>
 			<BarraHorizontal />
