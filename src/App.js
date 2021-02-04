@@ -1,5 +1,14 @@
-import React, { Fragment, useState } from 'react';
+import React, {
+	Fragment,
+	useState,
+	useEffect,
+} from 'react';
 // import { gsap } from 'gsap';
+import {
+	animacionMenu,
+	animacionNombre,
+	animacionLogo,
+} from './animations/animations';
 import Nav from './components/Nav';
 import Home from './components/Page 1/Home';
 import Menu from './components/Menu';
@@ -9,6 +18,15 @@ import Contacto from './components/Page 1/Contacto';
 
 function App() {
 	const [abrirmenu, guardarAbrirMenu] = useState(false);
+
+	useEffect(() => {
+		window.addEventListener(
+			'load',
+			animacionMenu,
+			animacionNombre(),
+			animacionLogo()
+		);
+	});
 	return (
 		<Fragment>
 			{abrirmenu ? (

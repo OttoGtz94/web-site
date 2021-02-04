@@ -80,8 +80,8 @@ const Menu = styled.span`
 
 const Nav = () => {
 	return (
-		<BarraNav>
-			<Menu>
+		<BarraNav className='barraNav'>
+			<Menu className='btn-menu'>
 				<FontAwesomeIcon icon={faEllipsisH} />
 			</Menu>
 		</BarraNav>

@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from '@emotion/styled';
 import { gsap } from 'gsap';
-import { animacionParpadeo, navegar } from '../../Helpers';
+import { navegar } from '../../Helpers';
+import { animacionParpadeo } from '../../animations/animations';
 import Logo from '../Logo';
 import BarraBottom from '../BarraBottom';
 import Cuadrado from '../Cuadrado';
@@ -116,13 +117,17 @@ const Home = ({ guardarAbrirMenu }) => {
 			{/* <Cuadrado clase='cuadrado1' /> */}
 			<ContenedorInformacion className='contenedorInformacion'>
 				<Logo clase='circulo-logo' />
-				<Nombre>OTTO GUTIÉRREZ</Nombre>
-				<Profesion>
+				<Nombre className='nombreTitulo'>
+					OTTO GUTIÉRREZ
+				</Nombre>
+				<Profesion className='profesionTitulo'>
 					Ing. En Sistemas Computacionales
 				</Profesion>
-				<Profesion>Full-Stack Developer</Profesion>
+				<Profesion className='profesionTitulo'>
+					Full-Stack Developer
+				</Profesion>
 			</ContenedorInformacion>
-			<Cuadrado clase='cuadrado2' />
+			<Cuadrado clase='cuadrado2 botonAbajo' />
 			<BotonNav
 				clase='triangulo-abajo'
 				navegar={() => navegar('#habilidades')}

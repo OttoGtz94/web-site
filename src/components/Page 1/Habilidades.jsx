@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -20,6 +20,7 @@ import Titulo from '../Titulo';
 import BarraHorizontal from '../BarraBottom';
 import BotonNav from '../BotonNav';
 import { navegar } from '../../Helpers';
+import { animacionIconoPC } from '../../animations/animations';
 
 const ContenedorHabilidades = styled.div`
 	/* width: 100%;
@@ -113,9 +114,9 @@ const Habilidades = () => {
 		faGithubSquare,
 	];
 
-	// tecnologias.forEach(tecnologia =>
-	// 	console.log(tecnologia)
-	// );
+	useEffect(() => {
+		window.addEventListener('load', animacionIconoPC());
+	}, []);
 
 	return (
 		<ContenedorHabilidades

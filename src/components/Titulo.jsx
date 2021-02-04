@@ -36,7 +36,10 @@ const Titulo = ({ titulo }) => {
 			<h3>{titulo}</h3>
 			<div>
 				<a href='#null'>
-					<FontAwesomeIcon icon={faDesktop} />
+					<FontAwesomeIcon
+						icon={faDesktop}
+						className='iconoPC'
+					/>
 				</a>
 			</div>
 		</ContenedorTitulo>
