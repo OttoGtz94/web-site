@@ -113,9 +113,11 @@ const Habilidades = () => {
 		faDatabase,
 		faGithubSquare,
 	];
+	// const ref = useRef();
 
 	useEffect(() => {
 		window.addEventListener('load', animacionIconoPC());
+		// window.addEventListener('scroll', scrollHandler, true);
 	}, []);
 
 	return (
@@ -146,7 +148,7 @@ const Habilidades = () => {
 					<div className='contenedorIconos'>
 						{tecnologias.map(tecnologia => (
 							<div key={tecnologia.iconName}>
-								<span>
+								<span className='iconoHabilidad'>
 									<FontAwesomeIcon icon={tecnologia} />
 								</span>
 							</div>

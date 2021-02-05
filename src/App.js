@@ -2,12 +2,14 @@ import React, {
 	Fragment,
 	useState,
 	useEffect,
+	useRef,
 } from 'react';
 // import { gsap } from 'gsap';
 import {
 	animacionMenu,
 	animacionNombre,
 	animacionLogo,
+	animacionIconoPC,
 } from './animations/animations';
 import Nav from './components/Nav';
 import Home from './components/Page 1/Home';
@@ -19,6 +21,12 @@ import Contacto from './components/Page 1/Contacto';
 function App() {
 	const [abrirmenu, guardarAbrirMenu] = useState(false);
 
+	const scrollHandler = _ => {
+		console.log(document.documentElement.scrollTop);
+		if (document.documentElement.scrollTop >= 658) {
+			animacionIconoPC();
+		}
+	};
 	useEffect(() => {
 		window.addEventListener(
 			'load',
@@ -26,12 +34,14 @@ function App() {
 			animacionNombre(),
 			animacionLogo()
 		);
+		window.addEventListener('scroll', scrollHandler, true);
 	});
+
 	return (
 		<Fragment>
-			{abrirmenu ? (
+			{/* {abrirmenu ? (
 				<Menu guardarAbrirMenu={guardarAbrirMenu} />
-			) : null}
+			) : null} */}
 			{/* <Menu clase='menu' /> */}
 			<Nav />
 			<Home guardarAbrirMenu={guardarAbrirMenu} />

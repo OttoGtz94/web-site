@@ -230,7 +230,7 @@ export const animacionIconoPC = () => {
 		.timeline({
 			defaults: {
 				duration: 0.5,
-				delay: 3,
+				delay: 2,
 				yoyo: true,
 			},
 		})
@@ -249,5 +249,9 @@ export const animacionIconoPC = () => {
 		.to('.iconoPC', {
 			scale: 1,
 			rotate: -90,
+		})
+		.to('.iconoPC', {
+			scale: 1,
+			rotate: 0,
 		});
 };

@@ -70,7 +70,7 @@ const Home = ({ guardarAbrirMenu }) => {
 	const ref = useRef();
 	useEffect(() => {
 		console.log('Componente cargado');
-		window.addEventListener('scroll', scrollHandler, true);
+		// window.addEventListener('scroll', scrollHandler, true);
 		window.addEventListener('load', animacionParpadeo);
 		// if (ref.current.getBoundingClientRect().y > 100) {
 		// 	guardarVisible(true);
@@ -82,7 +82,7 @@ const Home = ({ guardarAbrirMenu }) => {
 
 	const scrollHandler = () => {
 		let y = ref.current.getBoundingClientRect().y * -1;
-		console.log(y);
+		// console.log(y);
 		if (y < 100) {
 			console.log('y es menor a 100');
 			// animacionParpadeo();
@@ -95,7 +95,7 @@ const Home = ({ guardarAbrirMenu }) => {
 	return (
 		<ContenedorHeader
 			className='seccion'
-			ref={ref}
+			// ref={ref}
 			id='home'
 		>
 			{visible ? console.log('Y rd mayor a 100') : null}
