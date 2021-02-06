@@ -2,9 +2,9 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
-import Logo from './Logo';
-import BarraBottom from './BarraBottom';
-import Cuadrado from './Cuadrado';
+// import Logo from './Logo';
+// import BarraBottom from './BarraBottom';
+// import Cuadrado from './Cuadrado';
 
 const BarraNav = styled.nav`
 	/* background-color: blue; */

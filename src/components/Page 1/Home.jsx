@@ -49,19 +49,19 @@ const Profesion = styled.p`
 
 // ANIMACIONES
 
-const onMouseEnter = () => {
-	gsap.to('#menu', {
-		color: '#0d6d89',
-	});
-	console.log('Hover');
-};
+// const onMouseEnter = () => {
+// 	gsap.to('#menu', {
+// 		color: '#0d6d89',
+// 	});
+// 	console.log('Hover');
+// };
 
-const onMouseOut = () => {
-	gsap.to('#menu', {
-		color: '#f8f8f8',
-	});
-	console.log('Hover');
-};
+// const onMouseOut = () => {
+// 	gsap.to('#menu', {
+// 		color: '#f8f8f8',
+// 	});
+// 	console.log('Hover');
+// };
 
 const Home = ({ guardarAbrirMenu }) => {
 	// States
@@ -80,18 +80,18 @@ const Home = ({ guardarAbrirMenu }) => {
 		guardarVisible(false);
 	}, []);
 
-	const scrollHandler = () => {
-		let y = ref.current.getBoundingClientRect().y * -1;
-		// console.log(y);
-		if (y < 100) {
-			console.log('y es menor a 100');
-			// animacionParpadeo();
-			return;
-		} else if (y > 100) {
-			console.log('y es mayor a 100');
-			return;
-		}
-	};
+	// const scrollHandler = () => {
+	// 	let y = ref.current.getBoundingClientRect().y * -1;
+	// 	// console.log(y);
+	// 	if (y < 100) {
+	// 		console.log('y es menor a 100');
+	// 		// animacionParpadeo();
+	// 		return;
+	// 	} else if (y > 100) {
+	// 		console.log('y es mayor a 100');
+	// 		return;
+	// 	}
+	// };
 	return (
 		<ContenedorHeader
 			className='seccion'

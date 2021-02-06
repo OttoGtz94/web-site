@@ -1,4 +1,4 @@
-import { gsap, SteppedEase, Circ } from 'gsap';
+// import { gsap, SteppedEase, Circ } from 'gsap';
 
 export function abrirMenu(estado) {
 	if (estado) {

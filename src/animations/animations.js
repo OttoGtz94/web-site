@@ -1,12 +1,4 @@
-import {
-	gsap,
-	SteppedEase,
-	Circ,
-	Cubic,
-	Back,
-	Power3,
-	Sine,
-} from 'gsap';
+import { gsap, SteppedEase, Circ, Cubic, Back } from 'gsap';
 
 export const animacionParpadeo = () => {
 	function animacionBoton() {
@@ -160,7 +152,7 @@ export const animacionNombre = () => {
 			translateX: -500,
 			opacity: 0.1,
 		})
-		.to('.nombre-titulo', {
+		.to('.nombreTitulo', {
 			color: 'auto',
 			// opacity: 1,
 			// scale: 1,
@@ -254,4 +246,49 @@ export const animacionIconoPC = () => {
 			scale: 1,
 			rotate: 0,
 		});
+};
+
+export const animacionIconos = activo => {
+	// const iconosHabilidades = document.querySelectorAll(
+	// 	'.iconoHabilidad'
+	// );
+	// // console.log(iconosHabilidades);
+	// iconosHabilidades.forEach(iconoHabilidad => {
+	// 	console.log(iconoHabilidad.classList[4]);
+	// 	gsap
+	// 		.timeline({
+	// 			defaults: {
+	// 				duration: 1.5,
+	// 				delay: 0.5,
+	// 				repeat: -1,
+	// 				stagger: 0.05,
+	// 			},
+	// 		})
+	// 		// .from(`${iconoHabilidad.classList[4]}`, {
+	// 		// 	color: 'auto',
+	// 		// 	// scale: 0.2,
+	// 		// })
+	// 		.to('.iconoHabilidad', {
+	// 			// scale: 1,
+	// 			color: '#0d6d89',
+	// 		});
+	// });
+	const animacionHabilidades = gsap
+		.timeline({
+			defaults: {
+				duration: 1.5,
+				delay: 0.2,
+				repeat: -1,
+				stagger: 0.05,
+			},
+		})
+		.to('.iconoHabilidad', {
+			// scale: 1,
+			color: '#0d6d89',
+		});
+	if (activo) {
+		return animacionHabilidades.restart(activo);
+	} else {
+		return animacionHabilidades.pause();
+	}
 };

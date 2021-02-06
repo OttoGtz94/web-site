@@ -15,12 +15,11 @@ import {
 	faBootstrap,
 } from '@fortawesome/free-brands-svg-icons';
 import { faDatabase } from '@fortawesome/free-solid-svg-icons';
-import Nav from '../Nav';
 import Titulo from '../Titulo';
 import BarraHorizontal from '../BarraBottom';
 import BotonNav from '../BotonNav';
 import { navegar } from '../../Helpers';
-import { animacionIconoPC } from '../../animations/animations';
+// import { animacionIconoPC } from '../../animations/animations';
 
 const ContenedorHabilidades = styled.div`
 	/* width: 100%;
@@ -113,12 +112,12 @@ const Habilidades = () => {
 		faDatabase,
 		faGithubSquare,
 	];
-	// const ref = useRef();
+	let n = 0;
 
-	useEffect(() => {
-		window.addEventListener('load', animacionIconoPC());
-		// window.addEventListener('scroll', scrollHandler, true);
-	}, []);
+	// useEffect(() => {
+	// 	window.addEventListener('load', animacionIconoPC());
+	// 	// window.addEventListener('scroll', scrollHandler, true);
+	// }, []);
 
 	return (
 		<ContenedorHabilidades
@@ -148,8 +147,12 @@ const Habilidades = () => {
 					<div className='contenedorIconos'>
 						{tecnologias.map(tecnologia => (
 							<div key={tecnologia.iconName}>
-								<span className='iconoHabilidad'>
-									<FontAwesomeIcon icon={tecnologia} />
+								<span>
+									<FontAwesomeIcon
+										icon={tecnologia}
+										className={`iconoHabilidad iconoHabilidad${(n =
+											n + 1)}`}
+									/>
 								</span>
 							</div>
 						))}
