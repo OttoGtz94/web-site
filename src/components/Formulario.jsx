@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 
 const ContenedorFormulario = styled.form`
@@ -48,27 +48,70 @@ const ContenedorFormulario = styled.form`
 `;
 
 const Formulario = () => {
+	const [error, guardarError] = useState(false);
+	const [datos, guardarDatos] = useState({
+		nombre: '',
+		correo: '',
+		mensaje: '',
+	});
+
+	const { nombre, correo, mensaje } = datos;
+	const leerFormulario = e => {
+		guardarDatos({
+			...datos,
+			[e.target.name]: e.target.value,
+		});
+	};
+
+	const enviarFormulario = e => {
+		e.preventDefault();
+		console.log(datos);
+		if (
+			nombre.trim() === '' ||
+			correo.trim() === '' ||
+			mensaje.trim() === ''
+		) {
+			guardarError(true);
+			return;
+		}
+		guardarError(false);
+		guardarDatos({
+			nombre: '',
+			correo: '',
+			mensaje: '',
+		});
+	};
 	return (
-		<ContenedorFormulario>
+		<ContenedorFormulario onSubmit={enviarFormulario}>
+			{error ? (
+				<p>Todos los campos son obligatorios</p>
+			) : null}
 			<input
 				type='text'
 				name='nombre'
 				id=''
 				placeholder='Ingresa tu nombre'
+				onChange={leerFormulario}
+				value={nombre}
 			/>
 			<input
 				type='email'
 				name='correo'
 				id=''
 				placeholder='Ingresa tu correo'
+				onChange={leerFormulario}
+				value={correo}
 			/>
 			<textarea
 				name='mensaje'
 				id=''
 				cols='30'
 				rows='10'
+				onChange={leerFormulario}
+				placeholder='Escribe tu mensaje'
+				value={mensaje}
 			></textarea>
-			<button>Enviar</button>
+			<button type='submit'>Enviar</button>
 		</ContenedorFormulario>
 	);
 };
